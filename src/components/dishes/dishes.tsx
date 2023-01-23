@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import dishesData from "./dishesData"
 import Dish from "./dish/dish"
 import style from "@/styles/components/dishes/dishes.module.scss"
-const Dishes = () => {
+const Dishes = ({filteredValues}:{filteredValues:any}) => {
     const [dishes, SetDishes] = useState<any>([])
 
     useEffect(() => {
@@ -10,6 +10,16 @@ const Dishes = () => {
         console.log(dishesData)
     }, [])
 
+    useEffect(() => {
+        let dishes = dishesData
+        if(filteredValues){
+            dishes = dishes.filter((el:any, i:number)=>{
+                console.log(el.name.toLowerCase())
+                return el.name.toLowerCase().includes(filteredValues)
+            })
+        }
+        SetDishes(dishes)
+    }, [filteredValues])
 
     return (
         <>
