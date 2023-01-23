@@ -1,0 +1,42 @@
+.dish_wrapper {
+    width: 20rem;
+    height: 22rem;
+    border-radius: 0.5rem;
+    background-color: var(--main-gray-3);
+    margin: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+
+
+    .dish_title {
+        height: 3rem;
+        padding-top: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .dish_image {
+        position: relative;
+        height: 11rem;
+
+        img {
+            width: 90%;
+            height: 100%;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .dish_price {
+        margin-top: 2.5rem;
+        height: 1rem;
+
+    }
+
+    .dish_buttons_wrapper {
+        height: 1rem;
+
+    }
+
+}
