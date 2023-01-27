@@ -1,0 +1,39 @@
+.input_field_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #F8F9FF;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+
+    .input_field {
+        width: 60%;
+        height: 100%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.38rem;
+        color: #959EAD;
+        text-transform: capitalize;
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+    .btn_wrapper {
+        width: 34%;
+        height: 100%;
+        margin-left: auto;
+
+        span {
+            font-size: 1.25rem !important;
+            line-height: 1.56rem !important;
+        }
+    }
+}

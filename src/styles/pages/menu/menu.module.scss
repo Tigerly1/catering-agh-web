@@ -1,0 +1,16 @@
+.inline_buttons_wrapper {
+    display: inline-block;
+
+    .button_filter_wrapper {
+        border: 1px solid var(--main-gray-7);
+        display: inline-block;
+        border-radius: 0.6rem;
+        margin: 0.2rem;
+        padding: 0.3rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--main-gray-5);
+        }
+    }
+}

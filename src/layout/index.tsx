@@ -6,7 +6,7 @@ import Header from "./header/index"
 const PageLayout = (props: any) => {
 
     const router = useRouter();
-
+    //useContext
     return (
         <>
             <Header />
