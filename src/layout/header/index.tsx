@@ -22,7 +22,14 @@ const Header = (props: any) => {
                 <Link href={"/add-dish"}>
                     <span>Dodaj danie</span>
                 </Link>
-                <Link href={"/bucket"}>
+
+                <Link href={"/login"} className={styles.navbar_login_wrapper}>
+                    <span >Sign in</span>
+                </Link>
+                <Link href={"/signup"} className={styles.navbar_signup_wrapper}>
+                    <span >Sign up</span>
+                </Link>
+                <Link href={"/bucket"} >
                     <img
                         className={styles.navbar_logo_wrapper}
                         alt="navbar busket"

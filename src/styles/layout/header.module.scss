@@ -17,6 +17,8 @@
             width: 2rem;
             height: 2rem;
         }
+
+        
     }
 
     &>a:first-child {
@@ -30,7 +32,16 @@
         padding-top: 0.7rem;
     }
 
+    .navbar_login_wrapper{
+          position: absolute;
+        right: 4.4rem;
+        padding-top: 0.9rem;  
+    }
 
-
+    .navbar_signup_wrapper{
+        position: absolute;
+      right: 9.4rem;
+      padding-top: 0.9rem;  
+  }
 
 }
