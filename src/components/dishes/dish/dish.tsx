@@ -5,6 +5,7 @@ import ActionButton from '@/components/buttons/actionButton';
 const Dish = (props: any) => {
 
 
+
     return (
         <>
             <div className={style.dish_wrapper}>
@@ -23,12 +24,15 @@ const Dish = (props: any) => {
                     <span className="fa fa-star"></span>
                     <span className="fa fa-star"></span>
                 </div>
-                
+
                 <div className={style.dish_price}>
                     <span>Cena: {props.dish.price}$</span>
                 </div>
                 <div className={style.dish_buttons_wrapper}>
-                    <ActionButton text={"Kup"} />
+                    <ActionButton onClick={() => {
+
+
+                    }} text={"Kup"} />
                 </div>
             </div>
         </>

@@ -1,10 +1,11 @@
+import { requestComponent } from "@/network/request";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface UserType {
-    email: string | null;
+    // email: string | null;
     uid: string | null;
-    emailVerified: boolean | null;
-    token: string | null;
+    // emailVerified: boolean | null;
+    // token: string | null;
 }
 
 export const AuthContext = createContext({});
@@ -16,30 +17,34 @@ export const AuthContextProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [user, setUser] = useState<UserType>({ email: null, uid: null, emailVerified: null, token: null });
+    const [user, setUser] = useState<UserType>({ uid: null });
     const [isInitialized, setIsInitialized] = useState(false);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(false);
+
+    const signInUserByCookie = async () => {
+        let res: any = await requestComponent({
+            url: "/auth/signin",
+            method: "POST",
+        }).then(res => res.json());
+        if (res) {
+            console.log(res)
+        }
+
+        if (res.error) {
+
+        }
+        if (res.user) {
+            setUser({ uid: res.user })
+            console.log(user.uid)
+        }
+    }
 
     useEffect(() => {
-        // const unsubscribe = onAuthStateChanged(auth, (user) => {
-        //     if (user) {
-        //         setUser({
-        //             email: user.email,
-        //             uid: user.uid,
-        //             emailVerified: user.emailVerified,
-        //         });
-        //         setIsInitialized(true);
-        //     } else {
-        //         setUser({ email: null, uid: null, emailVerified: null });
-        //         setIsInitialized(true);
-        //     }
-        // });
-        // setLoading(false);
-        // return () => unsubscribe();
+        signInUserByCookie()
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, isInitialized }}>
+        <AuthContext.Provider value={{ user, isInitialized, setUser }}>
             {loading ? null : children}
         </AuthContext.Provider>
     );

@@ -1,3 +1,4 @@
+import { AuthContextProvider } from '@/context/auth'
 import PageLayout from '@/layout'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
@@ -17,10 +18,12 @@ export default function App({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         ></link>
       </Head>
-      <PageLayout>
+      <AuthContextProvider>
+        <PageLayout>
 
-        <Component {...pageProps} />
-      </PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
+      </AuthContextProvider>
     </>
 
 
