@@ -4,6 +4,7 @@ import styles from "@/styles/layout/header.module.scss"
 import Link from "next/link";
 import { AuthContext } from "@/context/auth";
 import { Button, Layout, Menu, Typography } from "antd";
+import { deleteCookie, getCookie, getCookies, setCookie } from "cookies-next";
 
 const Header = (props: any) => {
     const router = useRouter();
@@ -53,7 +54,11 @@ const Header = (props: any) => {
                             </Link>, style: { float: "right" }
                         },
                         {
-                            key: '6', label: _auth.user.uid ? <Button onClick={() => _auth.setUser({ uid: null })}>Signout</Button>
+                            key: '6', label: _auth.user.uid ? <Button onClick={() => {
+                                _auth.setUser({ uid: null })
+                                deleteCookie('authorization')
+                                deleteCookie('x-refresh-token')
+                            }}>Signout</Button>
 
                                 : <Link href={"/login"} >
                                     <span >Sign in</span>

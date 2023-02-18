@@ -18,9 +18,12 @@ export default async (req: any, res: any) => {
 
 
         if (tokenA || tokenR) {
-            console.log("SIGNED IN")
+
             let resUser: any = getUserFromToken(tokenA)
+            console.log(resUser)
             if (resUser && resUser.user) {
+                console.log("XD")
+                console.log("SIGNED IN")
                 const response = {
                     user: resUser.user,
                 }
