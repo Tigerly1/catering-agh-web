@@ -20,7 +20,7 @@ const Signup = (props: any) => {
         validationSchema: schema,
         onSubmit: async (values:any, actions:any) => {
           let res: any = await requestComponent({
-            url: "/auth/signup",
+            url: "/api/auth/signup",
             data: values,
             method: "POST",
           });

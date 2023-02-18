@@ -23,7 +23,7 @@ export const AuthContextProvider = ({
 
     const signInUserByCookie = async () => {
         let res: any = await requestComponent({
-            url: "/auth/signin",
+            url: "/api/auth/signin",
             method: "POST",
         }).then(res => res.json());
         if (res) {

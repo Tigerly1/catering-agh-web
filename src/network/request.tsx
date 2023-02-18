@@ -10,7 +10,7 @@ interface RequestParams  {
 
 export async function requestComponent (RequestParams:RequestParams) {
     return await
-        fetch("http://localhost:3000/api" + RequestParams.url, {
+        fetch(RequestParams.url, {
             method: RequestParams.method,
             headers: {
                 'Content-Type': 'application/json',

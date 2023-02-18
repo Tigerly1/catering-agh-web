@@ -23,7 +23,7 @@ const Signup = (props: any) => {
         onSubmit: async (values: any, actions: any) => {
             console.log(document.cookie)
             let res: any = await requestComponent({
-                url: "/auth/signin",
+                url: "/api/auth/signin",
                 data: values,
                 method: "POST",
             }).then(res => res.json());
