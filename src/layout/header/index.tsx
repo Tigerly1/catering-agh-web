@@ -52,7 +52,7 @@ const Header = (props: any) => {
                         },
 
                         {
-                            key: '5', label: <Badge count={bucket.length} showZero style={{display: 'inherit'}}>
+                            key: '5', label: <Badge count={bucket.length} showZero offset={[0,20]}>
                                 <img
                                     className={styles.navbar_logo_wrapper}
                                     width="32px"
