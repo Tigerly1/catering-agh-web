@@ -113,10 +113,10 @@ const Menu = (props: any) => {
                     <div>
                         <p style={{ display: "inline-block" }}>Obecne filtry:</p>
                         <div style={{ display: "inline-block" }} className={styles.inline_buttons_wrapper}>
-                            {(dishesFiltersPicked).map((el: any) => {
+                            {(dishesFiltersPicked).map((el: any, i:any) => {
                                 console.log(el)
                                 if (Object.values(el).length > 0) {
-                                    return (<div onClick={() => deleteFilter(Object.keys(el)[0], Object.values(el)[0])} className={styles.button_filter_wrapper}>{Object.values(el)[0] + " (x)"}</div>)
+                                    return (<div key={i} onClick={() => deleteFilter(Object.keys(el)[0], Object.values(el)[0])} className={styles.button_filter_wrapper}>{Object.values(el)[0] + " (x)"}</div>)
                                 }
                             })}
                         </div>
