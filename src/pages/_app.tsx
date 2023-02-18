@@ -1,4 +1,5 @@
 import { AuthContextProvider } from '@/context/auth'
+import { BucketContextProvider } from '@/context/bucket'
 import PageLayout from '@/layout'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
@@ -19,10 +20,12 @@ export default function App({ Component, pageProps }: AppProps) {
         ></link>
       </Head>
       <AuthContextProvider>
-        <PageLayout>
+        <BucketContextProvider>
+          <PageLayout>
 
-          <Component {...pageProps} />
-        </PageLayout>
+            <Component {...pageProps} />
+          </PageLayout>
+        </BucketContextProvider>
       </AuthContextProvider>
     </>
 

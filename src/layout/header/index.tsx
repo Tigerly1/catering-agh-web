@@ -3,12 +3,27 @@ import { useRouter } from "next/router";
 import styles from "@/styles/layout/header.module.scss"
 import Link from "next/link";
 import { AuthContext } from "@/context/auth";
-import { Button, Layout, Menu, Typography } from "antd";
+import { Badge, Button, Layout, Menu, Typography } from "antd";
 import { deleteCookie, getCookie, getCookies, setCookie } from "cookies-next";
+import BucketModal from "@/components/bucket";
+import { BucketContext } from "@/context/bucket";
 
 const Header = (props: any) => {
+    const [modalVisible, setModalVisible] = useState(false);
+    const {bucket} = useContext<any>(BucketContext)
+
+
     const router = useRouter();
     const _auth: any = useContext(AuthContext)
+
+    const handleOpenModal = () => {
+        setModalVisible(true);
+      };
+    
+      const handleCloseModal = () => {
+        setModalVisible(false);
+      };
+
     return (
         <>
             <Layout.Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%', backgroundColor: "white" }}>
@@ -37,15 +52,17 @@ const Header = (props: any) => {
                         },
 
                         {
-                            key: '5', label: <Link href={"/bucket"} >
+                            key: '5', label: <Badge count={bucket.length} showZero style={{display: 'inherit'}}>
                                 <img
                                     className={styles.navbar_logo_wrapper}
                                     width="32px"
                                     height="32px"
+                                    style={{paddingTop: '4px'}}
                                     alt="navbar busket"
                                     src="images/basket.png"
-                                />
-                            </Link>, style: { float: "right" }
+                                    onClick={handleOpenModal}
+                                /></Badge>
+                            , style: { float: "right" }
                         },
                         {
                             key: '4', label: _auth.user.uid ? <Link href={'/'}>
@@ -74,7 +91,7 @@ const Header = (props: any) => {
 
 
             </Layout.Header>
-
+            <BucketModal visible={modalVisible} onClose={handleCloseModal} />
         </>
     )
 

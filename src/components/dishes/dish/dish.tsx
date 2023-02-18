@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import style from "@/styles/components/dishes/dish/dish.module.scss"
 import ActionButton from '@/components/buttons/actionButton';
+import { BucketContext } from '@/context/bucket';
 
 const Dish = (props: any) => {
 
-
+    const {setBucket, bucket} = useContext<any>(BucketContext)
 
     return (
         <>
@@ -30,7 +31,11 @@ const Dish = (props: any) => {
                 </div>
                 <div className={style.dish_buttons_wrapper}>
                     <ActionButton onClick={() => {
+                        setBucket([...bucket, {price: props.dish.price,
+                            name: props.dish.name
+                        }
 
+                        ])
 
                     }} text={"Kup"} />
                 </div>
